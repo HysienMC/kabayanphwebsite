@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Website Not Found</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        body {
+            background-color: #0b0b0f;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ff3b30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12" y2="16"></line></svg>'), auto;
+        }
+        
+        h1 {
+            font-size: 8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #ff3b30;
+            position: relative;
+            animation: glitchText 1.5s infinite alternate;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #b3b3b3;
+            animation: glitchText 2s infinite alternate;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: #ff3b30;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 0px 0px 10px #ff3b30;
+            animation: pulse 1.5s infinite;
+        }
+
+        .btn:hover {
+            background: #ff1e1e;
+            box-shadow: 0px 0px 20px #ff1e1e;
+            animation: shake 0.2s infinite alternate;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>'), auto;
+        }
+
+        /* Glitch Text Effect */
+        @keyframes glitchText {
+            0% { text-shadow: 3px 3px 0px #ff0000, -3px -3px 0px #00ff00; }
+            25% { text-shadow: -3px -3px 0px #ff0000, 3px 3px 0px #00ff00; }
+            50% { text-shadow: 3px 3px 0px #00ff00, -3px -3px 0px #ff0000; }
+            75% { text-shadow: -3px -3px 0px #00ff00, 3px 3px 0px #ff0000; }
+            100% { text-shadow: 3px 3px 0px #ff0000, -3px -3px 0px #00ff00; }
+        }
+
+        /* Glitch Background Effect */
+        @keyframes glitchBg {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* Button Shake */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(2px); }
+            100% { transform: translateX(-2px); }
+        }
+
+        /* Button Pulse */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Animated Background (Glitching Particles) */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+            animation: glitchBg 4s infinite alternate;
+        }
+
+        .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 5s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.2; }
+            50% { transform: translateY(-30px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.2; }
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            font-size: 1.2rem;
+            color: #ff3b30;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <script>
+            // Create animated particles
+            document.addEventListener("DOMContentLoaded", function () {
+                createParticles();
+                startWebsiteStatusCheck();
+                startCountdown();
+            });
+            
+            // 🎇 Create animated particles dynamically
+            function createParticles() {
+                const background = document.querySelector(".background");
+            
+                for (let i = 0; i < 40; i++) {
+                    let particle = document.createElement("div");
+                    particle.classList.add("particle");
+                    particle.style.top = `${Math.random() * 100}vh`;
+                    particle.style.left = `${Math.random() * 100}vw`;
+                    particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
+                    background.appendChild(particle);
+                }
+            }
+            
+            // 🌐 Check if the server is back online
+            async function checkWebsiteStatus() {
+                const serverIP = "103.152.197.168:25567"; // Change this to your Minecraft server IP
+                try {
+                    const response = await fetch(`https://api.mcsrvstat.us/2/${serverIP}`);
+                    const data = await response.json();
+                    if (data.online) {
+                        window.location.href = "/index.html"; // Redirect to main page
+                    }
+                } catch (error) {
+                    console.log("Server still offline...");
+                }
+            }
+            
+            // 🔄 Auto-check every 5 seconds
+            function startWebsiteStatusCheck() {
+                checkWebsiteStatus();
+                setInterval(checkWebsiteStatus, 5000);
+            }
+            
+            // ⏳ Countdown Timer
+            function startCountdown() {
+                let countdown = 5;
+                const countdownElement = document.createElement("div");
+                countdownElement.classList.add("countdown");
+                document.body.appendChild(countdownElement);
+            
+                setInterval(() => {
+                    countdownElement.textContent = `Retrying in ${countdown} seconds...`;
+                    countdown--;
+            
+                    if (countdown < 0) {
+                        countdown = 5; // Reset countdown
+                    }
+                }, 1000);
+            }
+            
+        </script>
+    </div>
+
+    <h1>404</h1>
+    <p>Oops! It looks like the server is down or unreachable.</p>
+    <p>Try reloading the page or come back later.</p>
+    <button class="btn" onclick="window.location.reload();">Retry</button>
+</body>
+</html>

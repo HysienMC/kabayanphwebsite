@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynmap - Kabayan SMP</title>
+    <link rel="stylesheet" href="/Css/style.css">
+    
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #000428, #004e92);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            animation: fadeInDown 0.6s ease-in-out;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover i {
+            transform: rotate(360deg);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Dynmap Section */
+        #dynmap {
+            padding: 8rem 2rem 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #dynmap h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+            animation: glow 2s infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        #dynmap p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: auto;
+            color: #d1d1d1;
+        }
+
+        iframe {
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.6);
+            width: 95%;
+            max-width: 1200px;
+            height: 600px;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        iframe:hover {
+            transform: scale(1.03);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff; }
+            to { text-shadow: 0 0 15px #00d4ff, 0 0 30px #00d4ff; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/index.html"><i class="fas fa-map-marked-alt"></i> HOME</a>
+        </div>
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+    </nav>
+
+    <!-- Dynmap Section -->
+    <section id="dynmap">
+        <h2><i class="fas fa-map"></i> Live Map</h2>
+        <p>Explore the world of Kabayan SMP in real-time! Interact with the map to see players, builds, and more.</p>
+        <iframe src="http://103.152.197.168:25777/" allowfullscreen></iframe>
+    </section>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

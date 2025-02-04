@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Details | Kabayan SMP</title>
+    <link rel="stylesheet" href="/Css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: white;
+            scroll-behavior: smooth;
+            text-align: center;
+        }
+
+        /* Navigation */
+        .menu {
+            background: rgba(0, 255, 255, 0.3);
+            padding: 15px 30px;
+            border-radius: 15px;
+            display: flex;
+            gap: 30px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: cyan;
+            transform: scale(1.1);
+        }
+
+        /* IP Details Section */
+        .ip-section {
+            margin-top: 100px;
+            padding: 80px 20px;
+            background-color: #1e1e1e;
+            color: #fff;
+            border-radius: 12px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .ip-section h2 {
+            font-size: 36px;
+            color: #00bcd4;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .ip-section p {
+            text-align: center;
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 40px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* IP Container */
+        .ip-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* IP Card Style */
+        .ip-card {
+            background: rgba(34, 34, 34, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.3);
+            max-width: 300px;
+            flex: 1;
+            margin: 10px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Hover Effect on IP Cards */
+        .ip-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 0px 25px cyan;
+            cursor: pointer;
+        }
+
+        /* Card Icons */
+        .ip-card i {
+            font-size: 60px;
+            color: #00bcd4;
+            margin-bottom: 15px;
+        }
+
+        /* Card Heading */
+        .ip-card h3 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        /* IP Text */
+        .ip-card p {
+            font-size: 18px;
+            color: #bbb;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 20px;
+            background-color: #1e1e1e;
+            color: #fff;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        #contact h2 {
+            font-size: 36px;
+            color: #00bcd4;
+            margin-bottom: 20px;
+        }
+
+        #contact p {
+            text-align: center;
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        #contact .btn {
+            background: cyan;
+            color: black;
+            padding: 15px 30px;
+            margin-top: 15px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 0 15px cyan;
+        }
+
+        #contact .btn:hover {
+            background: #00cccc;
+            box-shadow: 0 0 25px cyan;
+        }
+
+        /* Animation for Fade-in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ip-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ip-card {
+                max-width: 100%;
+            }
+
+            .menu {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Section -->
+    <div class="menu">
+        <a href="mainpage.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#ip-details"><i class="fas fa-server"></i> IP Details</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+
+    <!-- IP Details Section -->
+    <section id="ip-details" class="ip-section">
+        <div class="container">
+            <h2><i class="fas fa-plug"></i> Minecraft Server IPs</h2>
+            <p>Connect to our Minecraft servers using the IPs and ports below. Choose the one that works best for you!</p>
+            
+            <!-- IP Container -->
+            <div class="ip-container">
+                <!-- IP 1: Kabayan SMP Java -->
+                <div class="ip-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Kabayan SMP Java Edition</h3>
+                    <p><strong>IP:</strong> kabayanph3.mysrv.us</p>
+                    <p><strong>Port:</strong> 25565</p>
+                    <p><strong>Status:</strong> Cracked Server</p>
+                </div>
+                
+                <!-- IP 2: Kabayan SMP Bedrock -->
+                <div class="ip-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Kabayan SMP Bedrock Edition</h3>
+                    <p><strong>IP:</strong> 103.152.197.168</p>
+                    <p><strong>Port:</strong> 25567</p>
+                    <p><strong>Status:</strong> Bedrock Edition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2><i class="fas fa-headset"></i> Contact Us</h2>
+        <p>If you need support or have questions, feel free to reach out to us!</p>
+        <a href="https://discord.com" class="btn"><i class="fab fa-discord"></i> Join Discord</a>
+    </section>
+
+    <script src="/Js/script.js"></script>
+</body>
+</html>
